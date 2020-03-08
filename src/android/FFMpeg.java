@@ -32,7 +32,8 @@ if (rc == RETURN_CODE_SUCCESS) {
      message =  "Command execution cancelled by user.";
 } else {
    // Log.i(Config.TAG, String.format("Command execution failed with rc=%d and the output below.", rc));
-    message =  String.format("Command execution failed with rc=%d and the output below.", rc);
+    // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
+        message =   "Command execution failed" + Log.INFO;
   //  Config.printLastCommandOutput(Log.INFO);
 }
 
