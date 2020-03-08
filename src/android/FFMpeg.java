@@ -11,7 +11,8 @@ public class FFMpeg extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
-
+        int RETURN_CODE_CANCEL = 255;
+        int RETURN_CODE_SUCCESS = 0;
         if (action.equals("exec")) {
             
             //TODO: call ffmpeg-mobile and do the processing ...
