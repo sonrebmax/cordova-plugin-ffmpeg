@@ -33,7 +33,7 @@ if (rc == RETURN_CODE_SUCCESS) {
 } else {
    // Log.i(Config.TAG, String.format("Command execution failed with rc=%d and the output below.", rc));
     // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
-        message =   "Command execution failed" + Log.INFO;
+        message =   Log.INFO; //  "Command execution failed" +
   //  Config.printLastCommandOutput(Log.INFO);
 }
 
