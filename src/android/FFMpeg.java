@@ -35,7 +35,8 @@ if (rc == RETURN_CODE_SUCCESS) {
     // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
       //  message =    Config.getLastCommandOutput(); //  "Command execution failed" +
   //  Config.printLastCommandOutput(Log.INFO);
-    message = Config.getVersion(); 
+    // message = Config.getVersion(); 
+    String message2 = Config.getVersion(); 
 }
 
 
