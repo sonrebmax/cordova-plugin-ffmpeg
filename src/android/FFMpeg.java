@@ -26,7 +26,7 @@ int rc = FFmpeg.execute(command_name); // "-i file1.mp4 -c:v mpeg4 file2.mp4");
 
 if (rc == RETURN_CODE_SUCCESS) {
 //    Log.i(Config.TAG, "Command execution completed successfully.");
-    message = "Command execution completed successfully.";
+       message = "Command execution completed successfully. Output: " + Config.getLastCommandOutput();
 } else if (rc == RETURN_CODE_CANCEL) {
    // Log.i(Config.TAG, "Command execution cancelled by user.");
      message =  "Command execution cancelled by user.";
