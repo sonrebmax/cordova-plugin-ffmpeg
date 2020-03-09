@@ -16,6 +16,7 @@ public class FFMpeg extends CordovaPlugin
     {
         int RETURN_CODE_CANCEL = 255;
         int RETURN_CODE_SUCCESS = 0;
+         String message = "";
         if (action.equals("exec")) {
             //TODO: call ffmpeg-mobile and do the processing ...
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
@@ -170,7 +171,7 @@ public class FFMpeg extends CordovaPlugin
         if (action.equals("getSupportedCameraIds")) {
           
              //   callbackContext.success(Config.getSupportedCameraIds());
-                callbackContext.success( JSONArray.fromObject(onfig.getSupportedCameraIds()) );
+                callbackContext.success( JSONArray.fromObject(Config.getSupportedCameraIds()) );
             return true;
         }
 
