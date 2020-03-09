@@ -182,10 +182,10 @@ public class FFMpeg extends CordovaPlugin
             return true;
         }
 
-        if (action.equals("getNativeFFmpegVersion")) {
-                callbackContext.success(Config.getNativeFFmpegVersion());
-            return true;
-        }
+//         if (action.equals("getNativeFFmpegVersion")) {
+//                 callbackContext.success(Config.getNativeFFmpegVersion());
+//             return true;
+//         }
 
 
 
