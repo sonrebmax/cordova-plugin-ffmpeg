@@ -16,14 +16,15 @@ public class FFMpeg extends CordovaPlugin
     {
         int RETURN_CODE_CANCEL = 255;
         int RETURN_CODE_SUCCESS = 0;
-         String message = "";
-        if (action.equals("exec")) {
+        String message = "";
+        if (action.equals("exec"))
+        {
             //TODO: call ffmpeg-mobile and do the processing ...
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
             String command_name = data.getString(0);
             String message = "Command... " + command_name;
-            int rc = FFmpeg.execute(command_name);  
+            int rc = FFmpeg.execute(command_name);
             if (rc == RETURN_CODE_SUCCESS)
             {
                 //    Log.i(Config.TAG, "Command execution completed successfully.");
@@ -47,13 +48,14 @@ public class FFMpeg extends CordovaPlugin
         }
 
 
-        if (action.equals("ffprobe")) {
+        if (action.equals("ffprobe"))
+        {
             //TODO: call ffmpeg-mobile and do the processing ...
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
             String command_name = data.getString(0);
             String message = "Command... " + command_name;
-            int rc = FFprobe.execute(command_name);  
+            int rc = FFprobe.execute(command_name);
             if (rc == RETURN_CODE_SUCCESS)
             {
                 //    Log.i(Config.TAG, "Command execution completed successfully.");
@@ -75,13 +77,14 @@ public class FFMpeg extends CordovaPlugin
             }
             return true;
         }
-        if (action.equals("getMediaInformation")) {
+        if (action.equals("getMediaInformation"))
+        {
             //TODO: call ffmpeg-mobile and do the processing ...
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
             String filename = data.getString(0);
             String message = "Command... " + filename;
-            int rc = FFprobe.getMediaInformation(filename);  
+            int rc = FFprobe.getMediaInformation(filename);
             if (rc == RETURN_CODE_SUCCESS)
             {
                 //    Log.i(Config.TAG, "Command execution completed successfully.");
@@ -104,9 +107,10 @@ public class FFMpeg extends CordovaPlugin
             return true;
         }
 
-        if (action.equals("cancel")) {
+        if (action.equals("cancel"))
+        {
 
-            int rc = FFmpeg.cancel();  
+            int rc = FFmpeg.cancel();
             if (rc == RETURN_CODE_SUCCESS)
             {
                 //    Log.i(Config.TAG, "Command execution completed successfully.");
@@ -131,15 +135,17 @@ public class FFMpeg extends CordovaPlugin
 
 
 
-        if (action.equals("getLastCommandOutput")) {
-                callbackContext.success(Config.getLastCommandOutput());
+        if (action.equals("getLastCommandOutput"))
+        {
+            callbackContext.success(Config.getLastCommandOutput());
             return true;
         }
 
 
-        if (action.equals("getLastReturnCode")) {
+        if (action.equals("getLastReturnCode"))
+        {
 
-            int rc = Config.getLastReturnCode();  
+            int rc = Config.getLastReturnCode();
             if (rc == RETURN_CODE_SUCCESS)
             {
                 //    Log.i(Config.TAG, "Command execution completed successfully.");
@@ -163,38 +169,59 @@ public class FFMpeg extends CordovaPlugin
         }
 
 
-        if (action.equals("getLastReceivedStatistics")) {
-                callbackContext.success(Config.getLastReceivedStatistics());
+        if (action.equals("getLastReceivedStatistics"))
+        {
+            callbackContext.success(Config.getLastReceivedStatistics());
             return true;
         }
 
-        if (action.equals("getSupportedCameraIds")) {
-          JSONArray jsonSupportedCameraIds = new JSONArray();
-          List<String> listSupportedCameraIds = Config.getSupportedCameraIds(this);
-          if (listSupportedCameraIds != null) {
-    for (int i=0; i<listSupportedCameraIds.size(); i++) {
-        jsonSupportedCameraIds.put(new String(listSupportedCameraIds.get(i)));
-    }
-  }
-             //   callbackContext.success(Config.getSupportedCameraIds());
-                callbackContext.success( jsonSupportedCameraIds );
+        // if (action.equals("getSupportedCameraIds"))
+        // {
+        //     JSONArray jsonSupportedCameraIds = new JSONArray();
+        //     List<String> listSupportedCameraIds = Config.getSupportedCameraIds(this);
+        //     if (listSupportedCameraIds != null)
+        //     {
+        //         for (int i = 0; i < listSupportedCameraIds.size(); i++)
+        //         {
+        //             jsonSupportedCameraIds.put(new String(listSupportedCameraIds.get(i)));
+        //         }
+        //     }
+        //     //   callbackContext.success(Config.getSupportedCameraIds());
+        //     callbackContext.success( jsonSupportedCameraIds );
+        //     return true;
+        // }  
+        if (action.equals("getExternalLibraries"))
+        {
+            JSONArray jsonExternalLibraries = new JSONArray();
+            List<String> listExternalLibraries = Config.getExternalLibraries();
+            if (listExternalLibraries != null)
+            {
+                for (int i = 0; i < listExternalLibraries.size(); i++)
+                {
+                    jsonExternalLibraries.put(new String(listExternalLibraries.get(i)));
+                }
+            }
+            //   callbackContext.success(Config.getExternalLibraries());
+            callbackContext.success( jsonExternalLibraries );
             return true;
         }
 
-        if (action.equals("getFFmpegVersion")) {
-                callbackContext.success(Config.getFFmpegVersion());
+        if (action.equals("getFFmpegVersion"))
+        {
+            callbackContext.success(Config.getFFmpegVersion());
             return true;
         }
 
-        if (action.equals("getVersion")) {
-                callbackContext.success(Config.getVersion());
+        if (action.equals("getVersion"))
+        {
+            callbackContext.success(Config.getVersion());
             return true;
         }
 
-//         if (action.equals("getNativeFFmpegVersion")) {
-//                 callbackContext.success(Config.getNativeFFmpegVersion());
-//             return true;
-//         }
+        //         if (action.equals("getNativeFFmpegVersion")) {
+        //                 callbackContext.success(Config.getNativeFFmpegVersion());
+        //             return true;
+        //         }
 
 
 
