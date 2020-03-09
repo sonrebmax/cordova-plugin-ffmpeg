@@ -23,13 +23,14 @@ public class FFMpeg extends CordovaPlugin
         int RETURN_CODE_CANCEL = 255;
         int RETURN_CODE_SUCCESS = 0;
         String message = "";
+        String command_name = "";
         if (action.equals("exec"))
         {
             //TODO: call ffmpeg-mobile and do the processing ...
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
-            String command_name = data.getString(0);
-            String message = "Command... " + command_name;
+              command_name = data.getString(0);
+              message = "Command... " + command_name;
             int rc = FFmpeg.execute(command_name);
             if (rc == RETURN_CODE_SUCCESS)
             {
@@ -59,8 +60,8 @@ public class FFMpeg extends CordovaPlugin
             //TODO: call ffmpeg-mobile and do the processing ...
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
-            String command_name = data.getString(0);
-            String message = "Command... " + command_name;
+              command_name = data.getString(0);
+              message = "Command... " + command_name;
             int rc = FFprobe.execute(command_name);
             if (rc == RETURN_CODE_SUCCESS)
             {
@@ -89,7 +90,7 @@ public class FFMpeg extends CordovaPlugin
             //FFmpeg.execute("-i file1.mp4 -c:v mpeg4 file2.mp4");
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
             String filename = data.getString(0);
-            String message = "Command... " + filename;
+              message = "Command... " + filename;
 
             clearLog();
 
