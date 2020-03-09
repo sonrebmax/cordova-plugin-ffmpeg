@@ -112,26 +112,26 @@ public class FFMpeg extends CordovaPlugin
         if (action.equals("cancel"))
         {
 
-            int rc = FFmpeg.cancel();
-            if (rc == RETURN_CODE_SUCCESS)
-            {
-                //    Log.i(Config.TAG, "Command execution completed successfully.");
-                message = "Canceled. Output: " + Config.getLastCommandOutput();
-                callbackContext.success(message);
-            }
-            else if (rc == RETURN_CODE_CANCEL)
-            {
-                // Log.i(Config.TAG, "Command execution cancelled by user.");
-                message =  "Command execution cancelled by user.";
-                callbackContext.error(message);
-            }
-            else
-            {
-                // Log.i(Config.TAG, String.format("Command execution failed with rc=%d and the output below.", rc));
-                // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
-                message = Config.getLastCommandOutput();
-                callbackContext.error(message);
-            }
+              FFmpeg.cancel();
+            // if (rc == RETURN_CODE_SUCCESS)
+            // {
+            //     //    Log.i(Config.TAG, "Command execution completed successfully.");
+            //     message = "Canceled. Output: " + Config.getLastCommandOutput();
+            //     callbackContext.success(message);
+            // }
+            // else if (rc == RETURN_CODE_CANCEL)
+            // {
+            //     // Log.i(Config.TAG, "Command execution cancelled by user.");
+            //     message =  "Command execution cancelled by user.";
+            //     callbackContext.error(message);
+            // }
+            // else
+            // {
+            //     // Log.i(Config.TAG, String.format("Command execution failed with rc=%d and the output below.", rc));
+            //     // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
+            //     message = Config.getLastCommandOutput();
+            //     callbackContext.error(message);
+            // }
             return true;
         }
 
@@ -171,11 +171,11 @@ public class FFMpeg extends CordovaPlugin
         }
 
 
-        if (action.equals("getLastReceivedStatistics"))
-        {
-            callbackContext.success(Config.getLastReceivedStatistics());
-            return true;
-        }
+        // if (action.equals("getLastReceivedStatistics"))
+        // {
+        //     callbackContext.success(Config.getLastReceivedStatistics());
+        //     return true;
+        // }
 
         // if (action.equals("getSupportedCameraIds"))
         // {
