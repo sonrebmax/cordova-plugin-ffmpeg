@@ -101,6 +101,7 @@ public class FFMpeg extends CordovaPlugin {
             if (information == null)
             {
                 appendLog("Get media information failed\n");
+                return false;
             }
             else
             {
