@@ -331,7 +331,7 @@ public class FFMpeg extends CordovaPlugin {
         // }
         // 
         
-
+          return true;
         
     }
 
