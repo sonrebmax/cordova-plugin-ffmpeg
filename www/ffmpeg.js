@@ -24,9 +24,9 @@ exports.getLastReturnCode = function(success, error) {
     exec(success, error, "FFMpeg", "getLastReturnCode", []);
 };
 
-exports.getLastReceivedStatistics = function(success, error) {
-    exec(success, error, "FFMpeg", "getLastReceivedStatistics", []);
-};
+// exports.getLastReceivedStatistics = function(success, error) {
+//     exec(success, error, "FFMpeg", "getLastReceivedStatistics", []);
+// };
 
 exports.getExternalLibraries = function(success, error) {
     exec(success, error, "FFMpeg", "getExternalLibraries", []);
