@@ -8,10 +8,12 @@ import java.util.List;
 import com.arthenica.mobileffmpeg.Config;
 import com.arthenica.mobileffmpeg.FFmpeg;
 import com.arthenica.mobileffmpeg.FFprobe;
-
+import com.arthenica.mobileffmpeg.MediaInformation;
+import com.arthenica.mobileffmpeg.StreamInformation;
 
 public class FFMpeg extends CordovaPlugin
 {
+    private JSONArray jsonMediaInfo = new JSONArray();
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException
@@ -86,6 +88,150 @@ public class FFMpeg extends CordovaPlugin
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
             String filename = data.getString(0);
             String message = "Command... " + filename;
+
+            clearLog();
+
+
+
+
+        MediaInformation information = FFprobe.getMediaInformation(filename);
+        if (information == null) {
+            appendLog("Get media information failed\n");
+        } else {
+            appendLog("Media information for " + information.getPath() + "\n");
+
+            if (information.getFormat() != null) {
+                appendLog("Format: " + information.getFormat() + "\n");
+            }
+            if (information.getBitrate() != null) {
+                appendLog("Bitrate: " + information.getBitrate() + "\n");
+            }
+            if (information.getDuration() != null) {
+                appendLog("Duration: " + information.getDuration() + "\n");
+            }
+            if (information.getStartTime() != null) {
+                appendLog("Start time: " + information.getStartTime() + "\n");
+            }
+            if (information.getMetadataEntries() != null) {
+                Set<Map.Entry<String, String>> entries = information.getMetadataEntries();
+                for (Map.Entry<String, String> entry : entries) {
+                    appendLog("Metadata: " + entry.getKey() + ":" + entry.getValue() + "\n");
+                }
+            }
+            if (information.getStreams() != null) {
+                for (StreamInformation stream : information.getStreams()) {
+                    if (stream.getIndex() != null) {
+                        appendLog("Stream index: " + stream.getIndex() + "\n");
+                    }
+                    if (stream.getType() != null) {
+                        appendLog("Stream type: " + stream.getType() + "\n");
+                    }
+                    if (stream.getCodec() != null) {
+                        appendLog("Stream codec: " + stream.getCodec() + "\n");
+                    }
+                    if (stream.getFullCodec() != null) {
+                        appendLog("Stream full codec: " + stream.getFullCodec() + "\n");
+                    }
+                    if (stream.getFormat() != null) {
+                        appendLog("Stream format: " + stream.getFormat() + "\n");
+                    }
+                    if (stream.getFullFormat() != null) {
+                        appendLog("Stream full format: " + stream.getFullFormat() + "\n");
+                    }
+
+                    if (stream.getWidth() != null) {
+                        appendLog("Stream width: " + stream.getWidth() + "\n");
+                    }
+                    if (stream.getHeight() != null) {
+                        appendLog("Stream height: " + stream.getHeight() + "\n");
+                    }
+
+                    if (stream.getBitrate() != null) {
+                        appendLog("Stream bitrate: " + stream.getBitrate() + "\n");
+                    }
+                    if (stream.getSampleRate() != null) {
+                        appendLog("Stream sample rate: " + stream.getSampleRate() + "\n");
+                    }
+                    if (stream.getSampleFormat() != null) {
+                        appendLog("Stream sample format: " + stream.getSampleFormat() + "\n");
+                    }
+                    if (stream.getChannelLayout() != null) {
+                        appendLog("Stream channel layout: " + stream.getChannelLayout() + "\n");
+                    }
+
+                    if (stream.getSampleAspectRatio() != null) {
+                        appendLog("Stream sample aspect ratio: " + stream.getSampleAspectRatio() + "\n");
+                    }
+                    if (stream.getDisplayAspectRatio() != null) {
+                        appendLog("Stream display ascpect ratio: " + stream.getDisplayAspectRatio() + "\n");
+                        ;
+                    }
+                    if (stream.getAverageFrameRate() != null) {
+                        appendLog("Stream average frame rate: " + stream.getAverageFrameRate() + "\n");
+                    }
+                    if (stream.getRealFrameRate() != null) {
+                        appendLog("Stream real frame rate: " + stream.getRealFrameRate() + "\n");
+                    }
+                    if (stream.getTimeBase() != null) {
+                        appendLog("Stream time base: " + stream.getTimeBase() + "\n");
+                    }
+                    if (stream.getCodecTimeBase() != null) {
+                        appendLog("Stream codec time base: " + stream.getCodecTimeBase() + "\n");
+                    }
+
+                    if (stream.getMetadataEntries() != null) {
+                        Set<Map.Entry<String, String>> entries = stream.getMetadataEntries();
+                        for (Map.Entry<String, String> entry : entries) {
+                            appendLog("Stream metadata: " + entry.getKey() + ":" + entry.getValue() + "\n");
+                        }
+                    }
+                }
+            }
+        }
+ 
+
+
+callbackContext.success( jsonMediaInfo );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             int rc = FFprobe.getMediaInformation(filename);
             if (rc == RETURN_CODE_SUCCESS)
             {
@@ -234,6 +380,17 @@ public class FFMpeg extends CordovaPlugin
 
         // }
     }
+
+    public void appendLog(final String logMessage) {
+       // outputText.append(logMessage);
+        jsonMediaInfo.put(new String( logMessage ));
+    }
+
+    public void clearLog() {
+        //jsonMediaInfo.setText("");
+        jsonMediaInfo=new jsonArray();
+    }
+
 }
 
 
