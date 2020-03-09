@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.*;
 import com.arthenica.mobileffmpeg.Config;
 import com.arthenica.mobileffmpeg.FFmpeg;
 import com.arthenica.mobileffmpeg.FFprobe;
@@ -232,26 +233,26 @@ callbackContext.success( jsonMediaInfo );
 
 
 
-            int rc = FFprobe.getMediaInformation(filename);
-            if (rc == RETURN_CODE_SUCCESS)
-            {
-                //    Log.i(Config.TAG, "Command execution completed successfully.");
-                message = "Command execution completed successfully. Output: " + Config.getLastCommandOutput();
-                callbackContext.success(message);
-            }
-            else if (rc == RETURN_CODE_CANCEL)
-            {
-                // Log.i(Config.TAG, "Command execution cancelled by user.");
-                message =  "Command execution cancelled by user.";
-                callbackContext.error(message);
-            }
-            else
-            {
-                // Log.i(Config.TAG, String.format("Command execution failed with rc=%d and the output below.", rc));
-                // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
-                message = Config.getLastCommandOutput();
-                callbackContext.error(message);
-            }
+            // int rc = FFprobe.getMediaInformation(filename);
+            // if (rc == RETURN_CODE_SUCCESS)
+            // {
+            //     //    Log.i(Config.TAG, "Command execution completed successfully.");
+            //     message = "Command execution completed successfully. Output: " + Config.getLastCommandOutput();
+            //     callbackContext.success(message);
+            // }
+            // else if (rc == RETURN_CODE_CANCEL)
+            // {
+            //     // Log.i(Config.TAG, "Command execution cancelled by user.");
+            //     message =  "Command execution cancelled by user.";
+            //     callbackContext.error(message);
+            // }
+            // else
+            // {
+            //     // Log.i(Config.TAG, String.format("Command execution failed with rc=%d and the output below.", rc));
+            //     // message =  String.format("Command execution failed with rc=%d and the output below.", rc);
+            //     message = Config.getLastCommandOutput();
+            //     callbackContext.error(message);
+            // }
             return true;
         }
 
