@@ -169,9 +169,15 @@ public class FFMpeg extends CordovaPlugin
         }
 
         if (action.equals("getSupportedCameraIds")) {
-          
+          JSONArray jsonSupportedCameraIds = new JSONArray();
+          List<String> listSupportedCameraIds = Config.getSupportedCameraIds();
+          if (listSupportedCameraIds != null) {
+    for (int i=0; i<listSupportedCameraIds.size(); i++) {
+        jsonSupportedCameraIds.put(new String(listSupportedCameraIds.get(i)));
+    }
+  }
              //   callbackContext.success(Config.getSupportedCameraIds());
-                callbackContext.success( JSONArray.fromObject(Config.getSupportedCameraIds()) );
+                callbackContext.success( jsonSupportedCameraIds );
             return true;
         }
 
