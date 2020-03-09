@@ -13,13 +13,11 @@ import com.arthenica.mobileffmpeg.FFprobe;
 import com.arthenica.mobileffmpeg.MediaInformation;
 import com.arthenica.mobileffmpeg.StreamInformation;
 
-public class FFMpeg extends CordovaPlugin
-{
+public class FFMpeg extends CordovaPlugin {
     private JSONArray jsonMediaInfo = new JSONArray();
 
     @Override
-    public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException
-    {
+    public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
         int RETURN_CODE_CANCEL = 255;
         int RETURN_CODE_SUCCESS = 0;
         String message = "";
@@ -223,13 +221,8 @@ public class FFMpeg extends CordovaPlugin
                         }
                     }
                 }
-            }
-
-
-
-
+            } 
             callbackContext.success( jsonMediaInfo );
-
             return true;
         }
 
@@ -337,8 +330,8 @@ public class FFMpeg extends CordovaPlugin
         //     return false;
 
         // }
-    }
-
+        // 
+        
     public void appendLog(final String logMessage)
     {
         // outputText.append(logMessage);
@@ -350,6 +343,12 @@ public class FFMpeg extends CordovaPlugin
         //jsonMediaInfo.setText("");
         jsonMediaInfo = new JSONArray();
     }
+
+
+        
+    }
+
+
 
 }
 
