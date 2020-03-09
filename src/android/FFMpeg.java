@@ -170,7 +170,7 @@ public class FFMpeg extends CordovaPlugin
 
         if (action.equals("getSupportedCameraIds")) {
           JSONArray jsonSupportedCameraIds = new JSONArray();
-          List<String> listSupportedCameraIds = Config.getSupportedCameraIds();
+          List<String> listSupportedCameraIds = Config.getSupportedCameraIds(this);
           if (listSupportedCameraIds != null) {
     for (int i=0; i<listSupportedCameraIds.size(); i++) {
         jsonSupportedCameraIds.put(new String(listSupportedCameraIds.get(i)));
