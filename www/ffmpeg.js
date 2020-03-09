@@ -40,9 +40,9 @@ exports.getVersion = function(success, error) {
     exec(success, error, "FFMpeg", "getVersion", []);
 };
 
-exports.getNativeFFmpegVersion = function(success, error) {
-    exec(success, error, "FFMpeg", "getNativeFFmpegVersion", []);
-};
+// exports.getNativeFFmpegVersion = function(success, error) {
+//     exec(success, error, "FFMpeg", "getNativeFFmpegVersion", []);
+// };
 
 // /*global cordova, module*/
 
