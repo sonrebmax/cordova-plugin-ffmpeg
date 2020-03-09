@@ -91,16 +91,13 @@ public class FFMpeg extends CordovaPlugin {
             //https://github.com/tanersener/mobile-ffmpeg/wiki/Android
             String filename = data.getString(0);
             message = "Command... " + filename;
-
             clearLog();
-
-
-
 
             MediaInformation information = FFprobe.getMediaInformation(filename);
             if (information == null)
             {
                 appendLog("Get media information failed\n");
+                callbackContext.error("Get media information failed");
                 return false;
             }
             else
@@ -222,9 +219,10 @@ public class FFMpeg extends CordovaPlugin {
                         }
                     }
                 }
-            } 
             callbackContext.success( jsonMediaInfo );
-            return true;
+            return true;                
+            } 
+
         }
 
         if (action.equals("cancel"))
