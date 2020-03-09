@@ -388,7 +388,7 @@ callbackContext.success( jsonMediaInfo );
 
     public void clearLog() {
         //jsonMediaInfo.setText("");
-        jsonMediaInfo=new jsonArray();
+        jsonMediaInfo=new JSONArray();
     }
 
 }
