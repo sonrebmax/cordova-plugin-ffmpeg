@@ -332,6 +332,10 @@ public class FFMpeg extends CordovaPlugin {
         // }
         // 
         
+
+        
+    }
+
     public void appendLog(final String logMessage)
     {
         // outputText.append(logMessage);
@@ -342,10 +346,6 @@ public class FFMpeg extends CordovaPlugin {
     {
         //jsonMediaInfo.setText("");
         jsonMediaInfo = new JSONArray();
-    }
-
-
-        
     }
 
 
