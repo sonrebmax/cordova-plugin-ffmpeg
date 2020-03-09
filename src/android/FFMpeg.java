@@ -168,7 +168,9 @@ public class FFMpeg extends CordovaPlugin
         }
 
         if (action.equals("getSupportedCameraIds")) {
-                callbackContext.success(Config.getSupportedCameraIds());
+          
+             //   callbackContext.success(Config.getSupportedCameraIds());
+                callbackContext.success( JSONArray.fromObject(onfig.getSupportedCameraIds()) );
             return true;
         }
 
