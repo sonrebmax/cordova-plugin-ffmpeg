@@ -28,9 +28,12 @@ exports.getLastReceivedStatistics = function(success, error) {
     exec(success, error, "FFMpeg", "getLastReceivedStatistics", []);
 };
 
-exports.getSupportedCameraIds = function(success, error) {
-    exec(success, error, "FFMpeg", "getSupportedCameraIds", []);
+exports.getExternalLibraries = function(success, error) {
+    exec(success, error, "FFMpeg", "getExternalLibraries", []);
 };
+// exports.getSupportedCameraIds = function(success, error) {
+//     exec(success, error, "FFMpeg", "getSupportedCameraIds", []);
+// };
 
 exports.getFFmpegVersion = function(success, error) {
     exec(success, error, "FFMpeg", "getFFmpegVersion", []);
